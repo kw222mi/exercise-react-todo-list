@@ -1,7 +1,11 @@
+import TodoItem from "./TodoItem";
+
+
+
 export function App() {
   return (
     <>
-      <h1>This is the App component</h1>
+      <TodoItem text="do the dishes" author="Lisa" completed={false} time="240227"/>
     </>
   );
 }

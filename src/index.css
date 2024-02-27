@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+}
+
+
+body {
+    font-family: 'Raleway', serif;
+    background-color: bisque;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 500px;
+        margin: 50px auto;
+}
