@@ -1,5 +1,41 @@
 import "./todoItem.css"
 
+interface ITodoIttemProps{
+    text: string,
+   completed:boolean,
+
+}
+const TodoItem = (props:ITodoIttemProps) => {
+    return ( 
+        <>
+           <div id="app">
+     <span className="todo-text" id="todo-text-${index}">{props.text}</span>
+      <button id="delete-${index}" className="delete-btn"><span className="material-symbols-outlined">delete</span></button>
+       <button id="complete-{index}" className="complete-btn">
+        <span className="material-symbols-outlined">
+          {props.completed ? "undo" : "done" }
+        </span>
+      </button>
+     
+    </div>
+        
+
+  </>
+  
+    )
+}
+ 
+export default TodoItem;
+
+/*
+
+       <div id="app">
+      <span>{props.text}</span>
+      <button onClick={onDelete}>Delete</button>
+      <button onClick={onMoveUp} disabled={onMoveUp ? false : true}>Up</button>
+      <button onClick={onMoveDown} disabled={onMoveDown ? false : true}>Down</button>
+    </div>
+
 interface ITodoIttemProps {
     text:string,
     author:string,
@@ -7,10 +43,7 @@ interface ITodoIttemProps {
     time:string
 
 }
-const TodoItem = (props:ITodoIttemProps) => {
-    return ( 
-        <>
-        
+
     <span className="todo-text" id="todo-text-${index}">{props.text}</span>
     <button id="delete-${index}" className="delete-btn"><span className="material-symbols-outlined">delete</span></button>
     <button id="complete-${index}" className="complete-btn"><span className="material-symbols-outlined">{
@@ -23,9 +56,5 @@ const TodoItem = (props:ITodoIttemProps) => {
     <span id="time-stamp-${index}" className="time-stamp">Created:{
     props.time
   }</span>
-  </>
-  
-    )
-}
- 
-export default TodoItem;
+
+*/
