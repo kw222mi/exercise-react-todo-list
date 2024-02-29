@@ -18,6 +18,7 @@ const TodoList = (props:ITodoListProps) => {
   
     return ( 
         <div id="app" className="todo-list">
+           <button className="sort-btn" onClick={() => props. sortByAuthor()}>Sort by Author</button>
       
       {props.todos.map(todo => (
         <TodoItem

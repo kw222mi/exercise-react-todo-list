@@ -1,7 +1,12 @@
 .todo-list{
     padding: 0;
     margin: 0;
-    margin-bottom: 50px;
-           
-        
+    margin-bottom: 50px;     
+}
+
+.sort-btn {
+border-radius: 5px;
+    border: 2px solid gray;
+    padding: 10px;
+    width: 130px;
 }

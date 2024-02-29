@@ -19,18 +19,23 @@ const TodoItem = (props:ITodoItemProps) => {
     return ( 
         <>
         <div className="todo-item" id="app">
-          <span className={`todo-text ${props.completed ? "completed" : ""}`} id="todo-text-${index}">{props.text}</span>
-          <button id="delete-${index}" className="delete-btn" onClick={() => props.deleteTodo(props.id)}><span className="material-symbols-outlined">delete</span></button>
-          <button id="complete-{index}" className="complete-btn" onClick={() => props.setCompleted(props.id)}>
-          <span className="material-symbols-outlined">
-            {props.completed ? "undo" : "done" } </span> </button>
-          <button id="move-up-${index}" className="move-up-btn" onClick={() => props.moveTodoUp(props.id)}><span className="material-symbols-outlined">arrow_upward</span></button>
-          <button id="move-down-${index}" className="move-down-btn" onClick={() => props.moveTodoDown(props.id)}><span className="material-symbols-outlined">arrow_downward</span></button>
-          <button id="edit-${index}" className="edit-btn" onClick={() => props.editTodo(props.id)}><span className="material-symbols-outlined">edit</span></button>
-          <button onClick={() => props.sortByTimeStamp()}>Sort by Timestamp</button>
-          <button onClick={() => props. sortByAuthor()}>Sort by Author</button>
-          <span id="author-${index}" className="author">Author: {props.author}</span>
-          <span id="time-stamp-${index}" className="time-stamp">Created:{props.time}</span>
+          <button  className="complete-btn" onClick={() => props.setCompleted(props.id)}>
+          <span className="material-symbols-outlined"> {props.completed ? "undo" : "done" } </span> </button>
+
+          <div className="todo-item-text">
+          <span className={`todo-text ${props.completed ? "completed" : ""}`}>{props.text}</span>
+          <span  className="author">Author: {props.author}</span>
+          </div>
+
+         <div className="move-button-container">
+          <button className="move-up-btn" onClick={() => props.moveTodoUp(props.id)}><span className="material-symbols-outlined">arrow_drop_up</span></button>
+          <button className="move-down-btn" onClick={() => props.moveTodoDown(props.id)}><span className="material-symbols-outlined">arrow_drop_down</span></button>
+          </div>
+
+          <button className="edit-btn" onClick={() => props.editTodo(props.id)}><span className="material-symbols-outlined">edit</span></button>
+           <button className="delete-btn" onClick={() => props.deleteTodo(props.id)}><span className="material-symbols-outlined">delete</span></button>
+          
+          <span className="time-stamp">Created:{props.time}</span>
       </div> 
   </>
   
