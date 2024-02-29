@@ -1,4 +1,10 @@
-const AddTodo = (props) => {
+import "./AddTodo.css"
+
+interface IAddTodoProps {
+    handleSubmit: (event:React.FormEvent<HTMLFormElement>) => void
+}
+
+const AddTodo = (props:IAddTodoProps) => {
     return ( 
 
     <div id="app">

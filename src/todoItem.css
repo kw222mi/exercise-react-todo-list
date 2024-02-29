@@ -1,6 +1,4 @@
-* {
-    margin: 0;
-}
+
 
 #app {
     background-color: bisque;
@@ -10,16 +8,6 @@
     align-items: center;
     max-width: 500px;
     margin: 50px auto;
-}
-
-body {
-    font-family: 'Raleway', serif;
-}
-
-h1 {
-    font-family: 'Raleway', serif;
-    font-size: 40px;
-    margin: 20px;
 }
 
 .submit {
@@ -36,21 +24,9 @@ h1 {
     width: 300px;
 }
 
-form {
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-}
 
-ul {
-    padding: 0;
-    margin: 0;
-    margin-bottom: 50px;
-}
 
-li {
+.todo-item {
     padding: 10px;
     background-color: whitesmoke;
     border-radius: 10px;

@@ -1,0 +1,13 @@
+h1 {
+    font-family: 'Raleway', serif;
+    font-size: 40px;
+    margin: 20px;
+}
+
+form {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
