@@ -1,13 +1,12 @@
 import { useState } from "react";
 import AddTodo from "./AddTodo";
-import TodoItem from "./TodoItem";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid';
 
 
 
 export function App() {
-  const [todo, setTodo] = useState({});
+ 
   const [todos, setTodos] = useState([]);
 
   function handleSubmit (event) {
@@ -15,7 +14,9 @@ export function App() {
     console.log(id)
     console.log("handle submit")
     console.log(event.target.elements.newTodoInput.value)
+    console.log(event.target.elements.author.value)
     const newTodoText = event.target.elements.newTodoInput.value
+    const newAuthor = event.target.elements.author.value
     event.preventDefault();
      const timeStamp = getTimeStamp();
 
@@ -24,15 +25,16 @@ export function App() {
       id: id,
       text: newTodoText,
       completed: false,
-      //author: newAuthor,
+      author: newAuthor,
       time: timeStamp,
     }
-    setTodo(newTodo)
+    
 
      if (newTodo) {
-      setTodos([...todos, newTodo]);
+       setTodos(prevTodos => [...prevTodos, newTodo]);
     }
     console.log(todos)
+    event.target.reset(); 
   }
 }
 
@@ -41,29 +43,17 @@ const getTimeStamp = () => {
   return time;
 };
 
-  return (
-    <>
-    <AddTodo 
-    handleSubmit={handleSubmit}
-    />
-      <TodoList todos={todos}/>
-    </>
-  );
-}
-
-/*
-const [todos, setTodos] = useState([]);
-
-    const addTodo = () => {
-    const newTodo = prompt('Enter a new todo:');
-    if (newTodo) {
-      setTodos([...todos, { id: uuidv4(), text: newTodo }]);
-    }
-  };
-
-    const deleteTodo = (id) => {
+const deleteTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
+
+ const setCompleted = (id) => {
+  setTodos(prevTodos =>
+    prevTodos.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    )
+  );
+};
 
   const moveTodoUp = (id) => {
     const index = todos.findIndex(todo => todo.id === id);
@@ -87,12 +77,19 @@ const [todos, setTodos] = useState([]);
     }
   };
 
+  return (
+    <>
+    <AddTodo 
+    handleSubmit={handleSubmit}
+    />
+      <TodoList 
+      todos={todos}
+      deleteTodo={deleteTodo}
+      moveTodoDown={moveTodoDown}
+      moveTodoUp={moveTodoUp}
+      setCompleted={setCompleted}
+      />
+    </>
+  );
+}
 
-
-
-
-
-
-
-
-*/

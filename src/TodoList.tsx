@@ -1,10 +1,7 @@
-import { useState } from "react";
 import TodoItem from "./TodoItem";
 
 
 const TodoList = (props) => {
-   
-
   
     return ( 
         <div id="app">
@@ -12,11 +9,16 @@ const TodoList = (props) => {
       {props.todos.map(todo => (
         <TodoItem
           key={todo.id} // Använd id som nyckel
+          id={todo.id}
           text={todo.text}
           completed={todo.completed}
-          onDelete={() => deleteTodo(todo.id)}
-          onMoveUp={() => moveTodoUp(todo.id)}
-          onMoveDown={() => moveTodoDown(todo.id)}
+          time={todo.time}
+          author={todo.author}
+          deleteTodo={props.deleteTodo}
+          moveTodoDown={props.moveTodoDown}
+          moveTodoUp={props.moveTodoUp}
+          setCompleted={props.setCompleted}
+        
         />
       ))}
     </div>
@@ -25,13 +27,5 @@ const TodoList = (props) => {
 }
  
 export default TodoList;
-
-
-
-
-  
-
-  
-
-  
+ 
   

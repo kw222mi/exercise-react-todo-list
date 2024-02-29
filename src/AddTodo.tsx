@@ -5,7 +5,7 @@ const AddTodo = (props) => {
         <h1>Todo List</h1>
             <form id="form" onSubmit={(event) => props.handleSubmit(event)}>
                 <input type="text" id="newTodoInput" placeholder="Add a new todo"/>
-                
+                <input type="text" id="author" placeholder="Author"/>
                 <button type="submit" className="submit" >Add ToDo</button>
             </form>
         <ul id="todoList"></ul>
@@ -16,7 +16,3 @@ const AddTodo = (props) => {
  
 export default AddTodo;
 
-/* 
-<input type="text" id="author" placeholder="Author"/>
-
-*/
