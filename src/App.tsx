@@ -3,6 +3,7 @@ import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid';
 import "./index.css"
+import {ITodoInfo} from "./AddTodo"
 
 export interface ITodo {
     id:string,
@@ -16,34 +17,24 @@ export interface ITodo {
 export function App() {
   const [todos, setTodos] = useState<ITodo[]>([]);
 
-  function handleSubmit (event:React.FormEvent<HTMLFormElement>) {
+  function addNewTodo (addTodoInfo:ITodoInfo) {
     const id = uuidv4();
-   
-     const form = event.currentTarget as HTMLFormElement;
-      const elements = form.elements as HTMLFormControlsCollection;
-      const newTodoInput = elements.namedItem('newTodoInput') as HTMLInputElement;
-      const authorInput = elements.namedItem('author') as HTMLInputElement;
-      const newTodoText: string = newTodoInput.value;
-      const newAuthor: string = authorInput.value;
-
-    //const newTodoText = event.target.elements.newTodoInput.value
-    //const newAuthor = event.target.elements.author.value
-    event.preventDefault();
+      
      const timeStamp = getTimeStamp();
 
-     if (newTodoText !== "") {
+     if ( addTodoInfo.text !== "") {
       const newTodo = {
       id: id,
-      text: newTodoText,
+      text: addTodoInfo.text,
       completed: false,
-      author: newAuthor,
+      author: addTodoInfo.author,
       time: timeStamp,
     }
      if (newTodo) {
        setTodos((prevTodos: ITodo[]) => [...prevTodos, newTodo]);
     }
     console.log(todos)
-    form.reset(); 
+    
   }
 }
 
@@ -129,7 +120,7 @@ const sortByAuthor = () => {
   return (
     <>
     <AddTodo 
-    handleSubmit={handleSubmit}
+    addNewTodo={addNewTodo}
     />
       <TodoList 
       todos={todos}
